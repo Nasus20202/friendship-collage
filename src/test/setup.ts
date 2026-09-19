@@ -1,5 +1,15 @@
 import '@testing-library/jest-dom/vitest'
 
+let objectUrlId = 0
+Object.defineProperty(URL, 'createObjectURL', {
+  configurable: true,
+  value: () => `blob:test-${++objectUrlId}`,
+})
+Object.defineProperty(URL, 'revokeObjectURL', {
+  configurable: true,
+  value: () => undefined,
+})
+
 if (!globalThis.localStorage && globalThis.window?.localStorage) {
   Object.defineProperty(globalThis, 'localStorage', {
     value: globalThis.window.localStorage,
