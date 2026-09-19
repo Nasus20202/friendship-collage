@@ -5,6 +5,10 @@
     {
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "matchPackageNames": ["jsdom"],
+      "allowedVersions": "!/^(30\\.1\\.0)$/"
     }
   ]
 }
